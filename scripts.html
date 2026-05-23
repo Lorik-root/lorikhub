@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Универсальные скрипты — Lorik Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html">Lorik Hub</a>
+    <nav class="site-header__nav" aria-label="Навигация раздела">
+      <a class="site-header__link site-header__link--back" href="index.html">Назад на главную</a>
+      <a class="site-header__link site-header__link--active" href="scripts.html">Скрипты</a>
+    </nav>
+  </header>
+
+  <main class="page page--scripts">
+    <header class="section-header">
+      <h1 class="section-title">Универсальные скрипты</h1>
+      <p class="section-subtitle">Universal scripts</p>
+    </header>
+
+    <section class="scripts-grid" aria-label="Каталог скриптов">
+      <article class="script-card">
+        <div class="script-card__head">
+          <h2 class="script-card__title">Admin Panel</h2>
+          <span class="script-card__badge">Luau</span>
+        </div>
+        <p class="script-card__desc">
+          Универсальная панель администратора с удобным интерфейсом для управления игровыми параметрами и быстрого доступа к основным функциям.
+        </p>
+        <label class="code-label" for="script-admin-panel">Код для запуска</label>
+        <textarea
+          id="script-admin-panel"
+          class="code-field"
+          readonly
+          spellcheck="false"
+        >loadstring(game:HttpGet("https://gist.githubusercontent.com/Lorik-root/dc20223236447c03efd2438946feb690/raw/49e9f188e0416f68d230daf58f611470abef3d8d/gistfile1.lua"))()</textarea>
+        <button type="button" class="copy-btn" data-copy-target="script-admin-panel">
+          Скопировать код
+        </button>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Lorik Hub. Все права защищены. Проект создан в ознакомительных целях.</p>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll(".copy-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.getAttribute("data-copy-target");
+        var field = document.getElementById(targetId);
+        if (!field) return;
+
+        var text = field.value;
+        var defaultLabel = "Скопировать код";
+
+        function onSuccess() {
+          btn.classList.add("copy-btn--success");
+          btn.textContent = "Скопировано!";
+          setTimeout(function () {
+            btn.classList.remove("copy-btn--success");
+            btn.textContent = defaultLabel;
+          }, 2000);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+            field.select();
+            document.execCommand("copy");
+            onSuccess();
+          });
+        } else {
+          field.select();
+          document.execCommand("copy");
+          onSuccess();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

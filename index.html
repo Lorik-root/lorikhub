@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lorik Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html">Lorik Hub</a>
+    <nav class="site-header__nav" aria-label="Основная навигация">
+      <a class="site-header__link site-header__link--active" href="index.html">Главная</a>
+      <a class="site-header__link" href="scripts.html">Скрипты</a>
+    </nav>
+  </header>
+
+  <main class="page page--home">
     <header class="hero">
       <h1 class="title">LORIK HUB</h1>
       <p class="tagline">Разработка игровых утилит и легитная автоматизация</p>
@@ -15,7 +26,9 @@
 
     <section class="cards" aria-label="Услуги">
       <article class="card">
-        <h2 class="card__title">Скрипты</h2>
+        <h2 class="card__title">
+          <a class="card__link" href="scripts.html">Скрипты</a>
+        </h2>
         <p class="card__text">Создание оптимизированного и чистого кода на Luau для симуляции игровых процессов.</p>
       </article>
       <article class="card">
