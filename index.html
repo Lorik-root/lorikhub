@@ -9,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body--home">
+  <div class="site-bg" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="site-header__logo" href="index.html">Lorik Hub</a>
     <nav class="site-header__nav" aria-label="Основная навигация">
@@ -20,9 +22,22 @@
 
   <main class="page page--home">
     <header class="hero">
-      <h1 class="title">LORIK HUB</h1>
-      <p class="tagline">Разработка игровых утилит и легитная автоматизация</p>
-      <a class="hero__cta" href="scripts.html">Перейти в каталог скриптов</a>
+      <div class="hero__panel">
+        <h1 class="title">LORIK HUB</h1>
+        <p class="tagline">Разработка игровых утилит и легитная автоматизация</p>
+
+        <a class="hero__cta" href="scripts.html">
+          <span class="hero__cta-glow" aria-hidden="true"></span>
+          <span class="hero__cta-inner">
+            <span class="hero__cta-text">Перейти в каталог скриптов</span>
+            <span class="hero__cta-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+      </div>
     </header>
 
     <footer class="footer">
