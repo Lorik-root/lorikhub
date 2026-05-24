@@ -1,0 +1,54 @@
+/* —— Темы Lorik Hub (2 темы: чёрно‑синяя + чёрно‑оранжевая) —— */
+
+:root,
+[data-theme="blue"] {
+  /* Акцент и градиенты */
+  --accent: #3b82f6;
+  --accent-rgb: 59, 130, 246;
+  --accent-secondary-rgb: 0, 229, 255; /* cyan glow */
+
+  --accent-light: #60a5fa;
+  --accent-mid: #3b82f6;
+  --accent-deep: #1d4ed8;
+  --accent-dim: #1e40af;
+
+  /* Фон/поверхности */
+  --bg-deep: #070a12;
+  --bg-body: #0a0e1a;
+  --bg-panel: rgba(10, 14, 26, 0.62);
+  --bg-nav: rgba(15, 20, 34, 0.82);
+
+  /* Текст */
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-on-accent: #070a12;
+
+  /* Фоновая сетка/свечение */
+  --grid-line: rgba(59, 130, 246, 0.05);
+  --glow-radial: rgba(59, 130, 246, 0.06);
+}
+
+[data-theme="orange"] {
+  --accent: #ff8c32;
+  --accent-rgb: 255, 140, 50;
+  --accent-secondary-rgb: 0, 229, 255; /* добавляет “неоновый” контраст */
+
+  --accent-light: #ffad5c;
+  --accent-mid: #ff9f47;
+  --accent-deep: #e86f10;
+  --accent-dim: #cc5a00;
+
+  --bg-deep: #0a0a0a;
+  --bg-body: #0d0d0d;
+  --bg-panel: rgba(8, 8, 8, 0.55);
+  --bg-nav: rgba(31, 31, 31, 0.85);
+
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-on-accent: #0d0d0d;
+
+  --grid-line: rgba(255, 140, 50, 0.04);
+  --glow-radial: rgba(255, 140, 50, 0.05);
+}

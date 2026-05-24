@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="themes.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -62,6 +63,7 @@
       <button class="catalog-tabs__btn" type="button" role="tab" data-filter="universal" aria-selected="false">Universal</button>
       <button class="catalog-tabs__btn" type="button" role="tab" data-filter="blade-ball" aria-selected="false">Blade Ball</button>
       <button class="catalog-tabs__btn" type="button" role="tab" data-filter="doors" aria-selected="false">Doors</button>
+      <button class="catalog-tabs__btn" type="button" role="tab" data-filter="lost-front" aria-selected="false">Lost Front</button>
     </div>
 
     <section class="catalog" aria-label="Каталог скриптов">
@@ -133,6 +135,30 @@
         </div>
 
         <button type="button" class="copy-btn" data-copy-target="script-doors">
+          Копировать код
+        </button>
+      </article>
+
+      <article class="script-card" data-category="lost-front">
+        <div class="script-card__top">
+          <h2 class="script-card__title">Lost Front — MenuHUB</h2>
+          <span class="script-card__tag">[Roblox / Luau / Lost Front]</span>
+        </div>
+        <p class="script-card__desc">
+          Скрипт для Lost Front. Скопируй код, вставь в инжектор и нажми Execute — откроется меню.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="code-block__filename">lost-front.lua</span>
+          </div>
+          <pre class="code-block__pre"><code id="script-lost-front">loadstring(game:HttpGet("https://raw.githubusercontent.com/mmq098/MenuHUB/refs/heads/main/MenuHUB.lua"))()</code></pre>
+        </div>
+
+        <button type="button" class="copy-btn" data-copy-target="script-lost-front">
           Копировать код
         </button>
       </article>
