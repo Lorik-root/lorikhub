@@ -6,23 +6,58 @@
   <title>Lorik Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="body--home">
-  <div class="site-bg" aria-hidden="true"></div>
+  <div class="cyber-bg" aria-hidden="true">
+    <canvas class="cyber-bg__rain" id="cyber-rain"></canvas>
+    <div class="cyber-bg__grid"></div>
+    <div class="cyber-bg__vignette"></div>
+  </div>
 
-  <header class="site-header">
-    <a class="site-header__logo" href="index.html">Lorik Hub</a>
-    <nav class="site-header__nav" aria-label="Основная навигация">
-      <a class="site-header__link site-header__link--active" href="index.html">Главная</a>
-      <a class="site-header__link" href="scripts.html">Каталог скриптов</a>
+  <header class="mini-nav" id="mini-nav">
+    <div class="mini-nav__bar">
+      <a class="mini-nav__logo" href="index.html" aria-label="Lorik Hub">
+        <span class="mini-nav__logo-mark" aria-hidden="true"></span>
+        Lorik Hub
+      </a>
+
+      <nav class="mini-nav__links" aria-label="Основная навигация">
+        <a class="mini-nav__link mini-nav__link--active" href="index.html">
+          <span>Главная</span><span aria-hidden="true">Главная</span>
+        </a>
+        <a class="mini-nav__link" href="scripts.html">
+          <span>Каталог скриптов</span><span aria-hidden="true">Каталог скриптов</span>
+        </a>
+        <a class="mini-nav__link" href="injectors.html">
+          <span>Инжекторы</span><span aria-hidden="true">Инжекторы</span>
+        </a>
+        <a class="mini-nav__link" href="support.html">
+          <span>Поддержка</span><span aria-hidden="true">Поддержка</span>
+        </a>
+      </nav>
+
+      <button class="mini-nav__toggle" type="button" aria-expanded="false" aria-controls="mini-nav-menu" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mini-nav__mobile" id="mini-nav-menu" aria-label="Мобильная навигация">
+      <a class="mini-nav__mobile-link mini-nav__mobile-link--active" href="index.html">Главная</a>
+      <a class="mini-nav__mobile-link" href="scripts.html">Каталог скриптов</a>
+      <a class="mini-nav__mobile-link" href="injectors.html">Инжекторы</a>
+      <a class="mini-nav__mobile-link" href="support.html">Поддержка</a>
     </nav>
   </header>
 
   <main class="page page--home">
     <header class="hero">
       <div class="hero__panel">
+        <p class="hero__badge">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Roblox · Luau · Injectors
+        </p>
         <h1 class="title">LORIK HUB</h1>
         <p class="tagline">Разработка игровых утилит и легитная автоматизация</p>
 
@@ -40,9 +75,144 @@
       </div>
     </header>
 
+    <section class="bento" aria-labelledby="bento-title">
+      <header class="bento__header">
+        <p class="bento__eyebrow">Возможности</p>
+        <h2 class="bento__title" id="bento-title">Всё для Roblox-скриптинга</h2>
+        <p class="bento__subtitle">Скрипты, инжекторы и инструменты — в одном месте</p>
+      </header>
+
+      <div class="bento__grid">
+        <a class="glow-card bento__item bento__item--large" href="scripts.html" data-glow-card>
+          <span class="glow-card__shine" aria-hidden="true"></span>
+          <span class="glow-card__border" aria-hidden="true"></span>
+          <span class="bento__meta">Каталог</span>
+          <h3 class="bento__item-title">Скрипты для игр</h3>
+          <p class="bento__item-text">Universal, Blade Ball, Doors и другие — скопируй код и запусти через инжектор.</p>
+          <span class="bento__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="glow-card bento__item bento__item--medium" href="injectors.html" data-glow-card>
+          <span class="glow-card__shine" aria-hidden="true"></span>
+          <span class="glow-card__border" aria-hidden="true"></span>
+          <span class="bento__meta">Инжекторы</span>
+          <h3 class="bento__item-title">Solara и другие</h3>
+          <p class="bento__item-text">Скачай инжектор, вставь скрипт, нажми Execute.</p>
+        </a>
+
+        <article class="glow-card bento__item bento__item--small" data-glow-card>
+          <span class="glow-card__shine" aria-hidden="true"></span>
+          <span class="glow-card__border" aria-hidden="true"></span>
+          <span class="bento__meta">Безопасность</span>
+          <h3 class="bento__item-title">Обход античита</h3>
+          <p class="bento__item-text">Скрипты с легитными алгоритмами для стабильной работы.</p>
+        </article>
+
+        <article class="glow-card bento__item bento__item--wide" data-glow-card>
+          <span class="glow-card__shine" aria-hidden="true"></span>
+          <span class="glow-card__border" aria-hidden="true"></span>
+          <span class="bento__meta">Старт</span>
+          <h3 class="bento__item-title">Быстрый запуск</h3>
+          <p class="bento__item-text">Одна строка loadstring — без лишней установки и сложных настроек.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" aria-labelledby="showcase-title">
+      <header class="showcase__header">
+        <p class="showcase__eyebrow">Script Showcase</p>
+        <h2 class="showcase__title" id="showcase-title">Каталог скриптов</h2>
+        <p class="showcase__subtitle">Популярные loadstring — копируй в один клик</p>
+      </header>
+
+      <div class="showcase__grid">
+        <article class="showcase-card">
+          <div class="showcase-card__head">
+            <h3 class="showcase-card__title">Универсальный скрипт</h3>
+            <div class="showcase-card__tags">
+              <span class="showcase-card__tag">Universal</span>
+              <span class="showcase-card__tag showcase-card__tag--muted">Luau</span>
+            </div>
+          </div>
+          <p class="showcase-card__desc">Панель с функциями для любой игры — без ключа и установки.</p>
+          <div class="showcase-card__code">
+            <div class="showcase-card__code-bar">
+              <span class="showcase-card__filename">loader.lua</span>
+              <button type="button" class="showcase-card__copy" data-copy-target="showcase-universal" aria-label="Копировать код">
+                <svg class="showcase-card__copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg class="showcase-card__copy-check" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <pre class="showcase-card__pre"><code id="showcase-universal">loadstring(game:HttpGet("https://gist.githubusercontent.com/Lorik-root/dc20223236447c03efd2438946feb690/raw/49e9f188e0416f68d230daf58f611470abef3d8d/gistfile1.lua"))()</code></pre>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-card__head">
+            <h3 class="showcase-card__title">Blade Ball — Auto Parry</h3>
+            <div class="showcase-card__tags">
+              <span class="showcase-card__tag">Blade Ball</span>
+              <span class="showcase-card__tag showcase-card__tag--muted">Keyless</span>
+            </div>
+          </div>
+          <p class="showcase-card__desc">Авто-парирование ударов с обходом античита.</p>
+          <div class="showcase-card__code">
+            <div class="showcase-card__code-bar">
+              <span class="showcase-card__filename">blade-ball.lua</span>
+              <button type="button" class="showcase-card__copy" data-copy-target="showcase-blade" aria-label="Копировать код">
+                <svg class="showcase-card__copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg class="showcase-card__copy-check" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <pre class="showcase-card__pre"><code id="showcase-blade">loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-Auto-Parry-Keyless-128675"))()</code></pre>
+          </div>
+        </article>
+
+        <article class="showcase-card">
+          <div class="showcase-card__head">
+            <h3 class="showcase-card__title">Doors — Abysall Loader</h3>
+            <div class="showcase-card__tags">
+              <span class="showcase-card__tag">Doors</span>
+              <span class="showcase-card__tag showcase-card__tag--muted">Loader</span>
+            </div>
+          </div>
+          <p class="showcase-card__desc">Читы и автоматизация для Doors — одна строка кода.</p>
+          <div class="showcase-card__code">
+            <div class="showcase-card__code-bar">
+              <span class="showcase-card__filename">doors.lua</span>
+              <button type="button" class="showcase-card__copy" data-copy-target="showcase-doors" aria-label="Копировать код">
+                <svg class="showcase-card__copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg class="showcase-card__copy-check" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <pre class="showcase-card__pre"><code id="showcase-doors">loadstring(game:HttpGet("https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau"))()</code></pre>
+          </div>
+        </article>
+      </div>
+
+      <a class="showcase__more" href="scripts.html">Смотреть весь каталог →</a>
+    </section>
+
     <footer class="footer">
       <p>© 2026 Lorik Hub. Все права защищены. Проект создан в ознакомительных целях.</p>
     </footer>
   </main>
+
+  <script src="main.js"></script>
 </body>
 </html>

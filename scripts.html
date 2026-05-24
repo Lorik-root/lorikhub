@@ -10,11 +10,44 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="site-header__logo" href="index.html">Lorik Hub</a>
-    <nav class="site-header__nav" aria-label="Навигация">
-      <a class="site-header__link" href="index.html">Главная</a>
-      <a class="site-header__link site-header__link--active" href="scripts.html">Каталог скриптов</a>
+  <div class="cyber-bg" aria-hidden="true">
+    <canvas class="cyber-bg__rain" id="cyber-rain"></canvas>
+    <div class="cyber-bg__grid"></div>
+    <div class="cyber-bg__vignette"></div>
+  </div>
+
+  <header class="mini-nav" id="mini-nav">
+    <div class="mini-nav__bar">
+      <a class="mini-nav__logo" href="index.html" aria-label="Lorik Hub">
+        <span class="mini-nav__logo-mark" aria-hidden="true"></span>
+        Lorik Hub
+      </a>
+
+      <nav class="mini-nav__links" aria-label="Основная навигация">
+        <a class="mini-nav__link" href="index.html">
+          <span>Главная</span><span aria-hidden="true">Главная</span>
+        </a>
+        <a class="mini-nav__link mini-nav__link--active" href="scripts.html">
+          <span>Каталог скриптов</span><span aria-hidden="true">Каталог скриптов</span>
+        </a>
+        <a class="mini-nav__link" href="injectors.html">
+          <span>Инжекторы</span><span aria-hidden="true">Инжекторы</span>
+        </a>
+        <a class="mini-nav__link" href="support.html">
+          <span>Поддержка</span><span aria-hidden="true">Поддержка</span>
+        </a>
+      </nav>
+
+      <button class="mini-nav__toggle" type="button" aria-expanded="false" aria-controls="mini-nav-menu" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mini-nav__mobile" id="mini-nav-menu" aria-label="Мобильная навигация">
+      <a class="mini-nav__mobile-link" href="index.html">Главная</a>
+      <a class="mini-nav__mobile-link mini-nav__mobile-link--active" href="scripts.html">Каталог скриптов</a>
+      <a class="mini-nav__mobile-link" href="injectors.html">Инжекторы</a>
+      <a class="mini-nav__mobile-link" href="support.html">Поддержка</a>
     </nav>
   </header>
 
@@ -24,14 +57,21 @@
       <p class="section-subtitle">Готовые решения для автоматизации игровых процессов</p>
     </header>
 
+    <div class="catalog-tabs" data-catalog-tabs role="tablist" aria-label="Фильтр скриптов">
+      <button class="catalog-tabs__btn catalog-tabs__btn--active" type="button" role="tab" data-filter="all" aria-selected="true">Все</button>
+      <button class="catalog-tabs__btn" type="button" role="tab" data-filter="universal" aria-selected="false">Universal</button>
+      <button class="catalog-tabs__btn" type="button" role="tab" data-filter="blade-ball" aria-selected="false">Blade Ball</button>
+      <button class="catalog-tabs__btn" type="button" role="tab" data-filter="doors" aria-selected="false">Doors</button>
+    </div>
+
     <section class="catalog" aria-label="Каталог скриптов">
-      <article class="script-card">
+      <article class="script-card" data-category="universal">
         <div class="script-card__top">
           <h2 class="script-card__title">Универсальный скрипт</h2>
           <span class="script-card__tag">[Roblox / Luau]</span>
         </div>
         <p class="script-card__desc">
-          Загружает и запускает универсальную утилиту через удалённый модуль. Подходит для быстрого развёртывания панели управления без ручной установки файлов.
+          Универсальный скрипт для Roblox. Скопируй код, вставь в инжектор и нажми Execute — откроется панель с функциями. Работает с обходом античита, ничего устанавливать не нужно.
         </p>
 
         <div class="code-block">
@@ -48,6 +88,54 @@
           Копировать код
         </button>
       </article>
+
+      <article class="script-card" data-category="blade-ball">
+        <div class="script-card__top">
+          <h2 class="script-card__title">Blade Ball — Auto Parry</h2>
+          <span class="script-card__tag">[Roblox / Luau / Blade Ball]</span>
+        </div>
+        <p class="script-card__desc">
+          Скрипт для Blade Ball — сам отбивает удары (Auto Parry). Без ключа: вставил в инжектор и сразу играешь. Есть обход античита, запуск за пару секунд.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="code-block__filename">blade-ball.lua</span>
+          </div>
+          <pre class="code-block__pre"><code id="script-blade-ball">loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-Auto-Parry-Keyless-128675"))()</code></pre>
+        </div>
+
+        <button type="button" class="copy-btn" data-copy-target="script-blade-ball">
+          Копировать код
+        </button>
+      </article>
+
+      <article class="script-card" data-category="doors">
+        <div class="script-card__top">
+          <h2 class="script-card__title">Doors — Abysall Loader</h2>
+          <span class="script-card__tag">[Roblox / Luau / Doors]</span>
+        </div>
+        <p class="script-card__desc">
+          Скрипт для Doors с читами и автоматизацией. Одна строка кода — вставляешь в инжектор, всё загружается само. Обход античита, удобное меню и быстрый старт в игре.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="code-block__filename">doors.lua</span>
+          </div>
+          <pre class="code-block__pre"><code id="script-doors">loadstring(game:HttpGet("https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau"))()</code></pre>
+        </div>
+
+        <button type="button" class="copy-btn" data-copy-target="script-doors">
+          Копировать код
+        </button>
+      </article>
     </section>
 
     <footer class="footer">
@@ -55,6 +143,7 @@
     </footer>
   </main>
 
+  <script src="main.js"></script>
   <script>
     (function () {
       var luau = {

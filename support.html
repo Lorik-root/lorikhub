@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поддержка — Lorik Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cyber-bg" aria-hidden="true">
+    <canvas class="cyber-bg__rain" id="cyber-rain"></canvas>
+    <div class="cyber-bg__grid"></div>
+    <div class="cyber-bg__vignette"></div>
+  </div>
+
+  <header class="mini-nav" id="mini-nav">
+    <div class="mini-nav__bar">
+      <a class="mini-nav__logo" href="index.html" aria-label="Lorik Hub">
+        <span class="mini-nav__logo-mark" aria-hidden="true"></span>
+        Lorik Hub
+      </a>
+
+      <nav class="mini-nav__links" aria-label="Основная навигация">
+        <a class="mini-nav__link" href="index.html">
+          <span>Главная</span><span aria-hidden="true">Главная</span>
+        </a>
+        <a class="mini-nav__link" href="scripts.html">
+          <span>Каталог скриптов</span><span aria-hidden="true">Каталог скриптов</span>
+        </a>
+        <a class="mini-nav__link" href="injectors.html">
+          <span>Инжекторы</span><span aria-hidden="true">Инжекторы</span>
+        </a>
+        <a class="mini-nav__link mini-nav__link--active" href="support.html">
+          <span>Поддержка</span><span aria-hidden="true">Поддержка</span>
+        </a>
+      </nav>
+
+      <button class="mini-nav__toggle" type="button" aria-expanded="false" aria-controls="mini-nav-menu" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mini-nav__mobile" id="mini-nav-menu" aria-label="Мобильная навигация">
+      <a class="mini-nav__mobile-link" href="index.html">Главная</a>
+      <a class="mini-nav__mobile-link" href="scripts.html">Каталог скриптов</a>
+      <a class="mini-nav__mobile-link" href="injectors.html">Инжекторы</a>
+      <a class="mini-nav__mobile-link mini-nav__mobile-link--active" href="support.html">Поддержка</a>
+    </nav>
+  </header>
+
+  <main class="page page--catalog page--support">
+    <header class="section-header">
+      <h1 class="section-title">Поддержка</h1>
+      <p class="section-subtitle">Вопросы по скриптам, инжекторам и сайту</p>
+    </header>
+
+    <section class="support-card" aria-label="Контакты поддержки">
+      <div class="support-card__icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M21 5L2 12.5l7 1M21 5l-4 14-7-6.5M21 5l-9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2 class="support-card__title">Telegram</h2>
+      <p class="support-card__text">
+        Напиши в личные сообщения — поможем с запуском скриптов, выбором инжектора и ошибками.
+      </p>
+      <a
+        class="support-card__link"
+        href="https://t.me/salatnik67"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        @salatnik67
+      </a>
+      <p class="support-card__note">Ответ обычно в течение суток</p>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Lorik Hub. Все права защищены. Проект создан в ознакомительных целях.</p>
+    </footer>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
