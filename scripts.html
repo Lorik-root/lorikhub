@@ -3,45 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Универсальные скрипты — Lorik Hub</title>
+  <title>Каталог скриптов — Lorik Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <a class="site-header__logo" href="index.html">Lorik Hub</a>
-    <nav class="site-header__nav" aria-label="Навигация раздела">
-      <a class="site-header__link site-header__link--back" href="index.html">Назад на главную</a>
-      <a class="site-header__link site-header__link--active" href="scripts.html">Скрипты</a>
+    <nav class="site-header__nav" aria-label="Навигация">
+      <a class="site-header__link" href="index.html">Главная</a>
+      <a class="site-header__link site-header__link--active" href="scripts.html">Каталог скриптов</a>
     </nav>
   </header>
 
-  <main class="page page--scripts">
+  <main class="page page--catalog">
     <header class="section-header">
-      <h1 class="section-title">Универсальные скрипты</h1>
-      <p class="section-subtitle">Universal scripts</p>
+      <h1 class="section-title">Каталог скриптов</h1>
+      <p class="section-subtitle">Готовые решения для автоматизации игровых процессов</p>
     </header>
 
-    <section class="scripts-grid" aria-label="Каталог скриптов">
+    <section class="catalog" aria-label="Каталог скриптов">
       <article class="script-card">
-        <div class="script-card__head">
-          <h2 class="script-card__title">Admin Panel</h2>
-          <span class="script-card__badge">Luau</span>
+        <div class="script-card__top">
+          <h2 class="script-card__title">Универсальный скрипт</h2>
+          <span class="script-card__tag">[Roblox / Luau]</span>
         </div>
         <p class="script-card__desc">
-          Универсальная панель администратора с удобным интерфейсом для управления игровыми параметрами и быстрого доступа к основным функциям.
+          Загружает и запускает универсальную утилиту через удалённый модуль. Подходит для быстрого развёртывания панели управления без ручной установки файлов.
         </p>
-        <label class="code-label" for="script-admin-panel">Код для запуска</label>
-        <textarea
-          id="script-admin-panel"
-          class="code-field"
-          readonly
-          spellcheck="false"
-        >loadstring(game:HttpGet("https://gist.githubusercontent.com/Lorik-root/dc20223236447c03efd2438946feb690/raw/49e9f188e0416f68d230daf58f611470abef3d8d/gistfile1.lua"))()</textarea>
-        <button type="button" class="copy-btn" data-copy-target="script-admin-panel">
-          Скопировать код
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="code-block__filename">loader.lua</span>
+          </div>
+          <pre class="code-block__pre"><code id="script-universal">loadstring(game:HttpGet("https://gist.githubusercontent.com/Lorik-root/dc20223236447c03efd2438946feb690/raw/49e9f188e0416f68d230daf58f611470abef3d8d/gistfile1.lua"))()</code></pre>
+        </div>
+
+        <button type="button" class="copy-btn" data-copy-target="script-universal">
+          Копировать код
         </button>
       </article>
     </section>
@@ -52,37 +56,86 @@
   </main>
 
   <script>
-    document.querySelectorAll(".copy-btn").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var targetId = btn.getAttribute("data-copy-target");
-        var field = document.getElementById(targetId);
-        if (!field) return;
+    (function () {
+      var luau = {
+        keywords: ["loadstring", "game", "true", "false", "nil", "and", "or", "not", "function", "local", "return"],
+        builtins: ["HttpGet", "print", "wait", "spawn"]
+      };
 
-        var text = field.value;
-        var defaultLabel = "Скопировать код";
+      function escapeHtml(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
 
-        function onSuccess() {
-          btn.classList.add("copy-btn--success");
-          btn.textContent = "Скопировано!";
-          setTimeout(function () {
-            btn.classList.remove("copy-btn--success");
-            btn.textContent = defaultLabel;
-          }, 2000);
-        }
+      function highlightLuau(code) {
+        var html = escapeHtml(code);
+        var strings = [];
+        html = html.replace(/"([^"\\]|\\.)*"/g, function (match) {
+          var key = "%%STR" + strings.length + "%%";
+          strings.push('<span class="tok-string">' + match + "</span>");
+          return key;
+        });
+        luau.keywords.forEach(function (word) {
+          html = html.replace(new RegExp("\\b" + word + "\\b", "g"), '<span class="tok-keyword">' + word + "</span>");
+        });
+        luau.builtins.forEach(function (word) {
+          html = html.replace(new RegExp("\\b" + word + "\\b", "g"), '<span class="tok-builtin">' + word + "</span>");
+        });
+        html = html.replace(/(\(|\)|\.|:)/g, '<span class="tok-punct">$1</span>');
+        strings.forEach(function (replacement, index) {
+          html = html.replace("%%STR" + index + "%%", replacement);
+        });
+        return html;
+      }
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
-            field.select();
-            document.execCommand("copy");
-            onSuccess();
-          });
-        } else {
-          field.select();
-          document.execCommand("copy");
-          onSuccess();
-        }
+      document.querySelectorAll(".code-block__pre code").forEach(function (el) {
+        var raw = el.textContent;
+        el.setAttribute("data-raw", raw);
+        el.innerHTML = highlightLuau(raw);
       });
-    });
+
+      document.querySelectorAll(".copy-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var targetId = btn.getAttribute("data-copy-target");
+          var codeEl = document.getElementById(targetId);
+          if (!codeEl) return;
+
+          var text = codeEl.getAttribute("data-raw") || codeEl.textContent;
+          var defaultLabel = "Копировать код";
+
+          function onSuccess() {
+            btn.classList.add("copy-btn--success");
+            btn.textContent = "Скопировано!";
+            setTimeout(function () {
+              btn.classList.remove("copy-btn--success");
+              btn.textContent = defaultLabel;
+            }, 2000);
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+              fallbackCopy(text, onSuccess);
+            });
+          } else {
+            fallbackCopy(text, onSuccess);
+          }
+        });
+      });
+
+      function fallbackCopy(text, callback) {
+        var area = document.createElement("textarea");
+        area.value = text;
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        document.body.removeChild(area);
+        callback();
+      }
+    })();
   </script>
 </body>
 </html>
